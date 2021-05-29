@@ -6,9 +6,6 @@ import models.AccompaniedService;
  * dịch vụ massage
  */
 public class Massage extends AccompaniedService {
-    public Massage(String id) {
-        super(id);
-    }
 
     public Massage(String id, String name, int amount, double price) {
         super(id, name, amount, price);
@@ -16,6 +13,16 @@ public class Massage extends AccompaniedService {
 
     @Override
     protected String showInfo() {
-        return null;
+        return toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Massage{" +
+                "name='" + name + '\'' +
+                ", amount=" + amount +
+                ", price=" + price +
+                ", id='" + id + '\'' +
+                '}';
     }
 }

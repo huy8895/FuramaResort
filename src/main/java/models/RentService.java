@@ -33,12 +33,13 @@ public abstract class RentService extends Services {
      */
     protected RentalType rentalType;
 
-    public RentService(String id) {
+    public RentService(String id, String name, int usableArea, double rentalCost, int maxNumberPeople, RentalType rentalType) {
         super(id);
-    }
-
-    public RentService() {
-        super();
+        this.name = name;
+        this.usableArea = usableArea;
+        this.rentalCost = rentalCost;
+        this.maxNumberPeople = maxNumberPeople;
+        this.rentalType = rentalType;
     }
 
     public String getName() {

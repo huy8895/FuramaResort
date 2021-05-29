@@ -1,5 +1,6 @@
 package models.rent;
 
+import enums.RentalType;
 import models.AccompaniedService;
 import models.RentService;
 
@@ -11,12 +12,8 @@ public class Room extends RentService {
      */
     List<AccompaniedService> freeServicesIncluded;
 
-    public Room(String id) {
-        super(id);
-    }
-
-    public Room(String id, List<AccompaniedService> freeServicesIncluded) {
-        super(id);
+    public Room(String id, String name, int usableArea, double rentalCost, int maxNumberPeople, RentalType rentalType, List<AccompaniedService> freeServicesIncluded) {
+        super(id, name, usableArea, rentalCost, maxNumberPeople, rentalType);
         this.freeServicesIncluded = freeServicesIncluded;
     }
 

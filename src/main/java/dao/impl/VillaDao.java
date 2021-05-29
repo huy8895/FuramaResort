@@ -23,7 +23,7 @@ public class VillaDao extends ServiceDao<Villa> {
     }
 
     @Override
-    public Villa addNewServices(Villa t) {
+    public Villa addNewService(Villa t) {
         return fileDao.save(t);
     }
 

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class RoomDao extends ServiceDao<Room> {
 
-    private static final String FILE_PATH = "src/main/java/data/House.csv";
+    private static final String FILE_PATH = "src/main/java/data/Room.csv";
 
     protected RoomDao() {
         super(FILE_PATH, Room.class);
@@ -27,7 +27,7 @@ public class RoomDao extends ServiceDao<Room> {
     }
 
     @Override
-    public Room addNewServices(Room t) {
+    public Room addNewService(Room t) {
         return fileDao.save(t);
     }
 

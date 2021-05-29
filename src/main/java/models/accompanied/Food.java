@@ -6,9 +6,6 @@ import models.AccompaniedService;
  * dịch vụ thức ăn
  */
 public class Food extends AccompaniedService {
-    public Food(String id) {
-        super(id);
-    }
 
     public Food(String id, String name, int amount, double price) {
         super(id, name, amount, price);
@@ -16,6 +13,16 @@ public class Food extends AccompaniedService {
 
     @Override
     protected String showInfo() {
-        return null;
+        return toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "name='" + name + '\'' +
+                ", amount=" + amount +
+                ", price=" + price +
+                ", id='" + id + '\'' +
+                '}';
     }
 }

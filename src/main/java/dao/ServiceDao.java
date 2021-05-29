@@ -14,7 +14,7 @@ public abstract class ServiceDao<T> {
 
     abstract protected List<String> showAllNameNotDuplicate();
 
-    abstract protected T addNewServices(T t);
+    abstract protected T addNewService(T t);
 
     abstract protected List<T> showServices();
 

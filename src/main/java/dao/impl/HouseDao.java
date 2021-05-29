@@ -23,7 +23,7 @@ public class HouseDao extends ServiceDao<House> {
     }
 
     @Override
-    public House addNewServices(House newHouse) {
+    public House addNewService(House newHouse) {
         return fileDao.save(newHouse);
     }
 

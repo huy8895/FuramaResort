@@ -19,15 +19,21 @@ public abstract class AccompaniedService extends Services {
      */
     protected double price;
 
-    public AccompaniedService(String id) {
-        super(id);
-    }
-
     public AccompaniedService(String id, String name, int amount, double price) {
         super(id);
         this.name = name;
         this.amount = amount;
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "AccompaniedService{" +
+                "name='" + name + '\'' +
+                ", amount=" + amount +
+                ", price=" + price +
+                ", id='" + id + '\'' +
+                '}';
     }
 
     public String getName() {

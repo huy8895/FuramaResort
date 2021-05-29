@@ -1,5 +1,6 @@
 package models.rent;
 
+import enums.RentalType;
 import models.RentService;
 
 public class House extends RentService {
@@ -17,15 +18,11 @@ public class House extends RentService {
      */
     private int numberFloors;
 
-    public House(String id, String rate, String description, int numberFloors) {
-        super(id);
+    public House(String id, String name, int usableArea, double rentalCost, int maxNumberPeople, RentalType rentalType, String rate, String description, int numberFloors) {
+        super(id, name, usableArea, rentalCost, maxNumberPeople, rentalType);
         this.rate = rate;
         this.description = description;
         this.numberFloors = numberFloors;
-    }
-
-    public House(String id) {
-        super(id);
     }
 
     @Override

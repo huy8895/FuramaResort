@@ -6,9 +6,6 @@ import models.AccompaniedService;
  * dịch vụ karaoke
  */
 public class Karaoke extends AccompaniedService {
-    public Karaoke(String id) {
-        super(id);
-    }
 
     public Karaoke(String id, String name, int amount, double price) {
         super(id, name, amount, price);
@@ -16,6 +13,16 @@ public class Karaoke extends AccompaniedService {
 
     @Override
     protected String showInfo() {
-        return null;
+        return toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Karaoke{" +
+                "name='" + name + '\'' +
+                ", amount=" + amount +
+                ", price=" + price +
+                ", id='" + id + '\'' +
+                '}';
     }
 }
