@@ -37,6 +37,10 @@ public abstract class RentService extends Services {
         super(id);
     }
 
+    public RentService() {
+        super();
+    }
+
     public String getName() {
         return name;
     }

@@ -3,6 +3,9 @@ package models;
 public abstract class Services {
     protected String id;
 
+    public Services() {
+    }
+
     protected abstract String showInfo();
 
     public Services(String id) {

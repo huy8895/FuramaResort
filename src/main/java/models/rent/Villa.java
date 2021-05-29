@@ -33,6 +33,10 @@ public class Villa extends RentService {
         super(id);
     }
 
+    public Villa() {
+        super();
+    }
+
     @Override
     protected String showInfo() {
         return toString();
