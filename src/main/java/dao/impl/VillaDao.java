@@ -1,11 +1,12 @@
 package dao.impl;
 
 import dao.AbstractDao;
+import dao.ServiceDao;
 import models.rent.Villa;
 
 import java.util.List;
 
-public class VillaDao implements AbstractDao<Villa> {
+public class VillaDao extends ServiceDao<Villa> {
     @Override
     public Villa add(Villa villa) {
         return null;
@@ -29,5 +30,10 @@ public class VillaDao implements AbstractDao<Villa> {
     @Override
     public void delete(String id) {
 
+    }
+
+    @Override
+    protected List<Villa> showAllNameNotDuplicate() {
+        return null;
     }
 }
