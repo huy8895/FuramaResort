@@ -1,47 +1,34 @@
 package dao.impl;
 
-import dao.AbstractDao;
 import dao.ServiceDao;
 import models.rent.House;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HouseDao extends ServiceDao<House> {
-    @Override
-    public House add(House house) {
-        return null;
+    private static final String DATA_HOUSE_CSV = "src/main/java/data/House.csv";
+
+    public HouseDao() {
+        super(DATA_HOUSE_CSV, House.class);
     }
 
     @Override
-    public House getDetail(String id) {
-        return null;
+    public List<String> showAllNameNotDuplicate() {
+        return fileDao.showList()
+                      .stream()
+                      .map(house -> house.getName())
+                      .distinct()
+                      .collect(Collectors.toList());
     }
 
     @Override
-    public List<House> showList() {
-        return null;
+    public House addNewServices(House newHouse) {
+        return fileDao.save(newHouse);
     }
 
     @Override
-    public House update(House house) {
-        return null;
-    }
-
-    @Override
-    public void delete(String id) {
-
-    }
-
-    @Override
-    public List<House> showAllNameNotDuplicate() {
-        return null;
-    }
-
-    /**
-     * cho phép hiển thị danh sách Customer trong file Customer.CSV
-     * được đánh số thứ tự để thực hiện việc lựa chọn booking cho Customer nào và trình đơn sau
-     */
-    public void addNewBooking(){
-
+    public List<House> showServices() {
+        return fileDao.showList();
     }
 }

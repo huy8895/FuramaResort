@@ -1,9 +1,9 @@
-package dao;
+package util;
 
 import java.util.List;
 
 public interface AbstractDao<T> {
-    T add(T t);
+    T save(T t);
 
     T getDetail(String id);
 

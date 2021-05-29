@@ -1,43 +1,34 @@
 package dao.impl;
 
-import com.google.gson.Gson;
 import dao.ServiceDao;
 import models.rent.Villa;
-import util.WriterUtil;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class VillaDao extends ServiceDao<Villa> {
-    private final String PATH = "src/main/java/data/Villa.csv";
-    private final Gson gson = new Gson();
-    @Override
-    public Villa add(Villa villa) {
-        WriterUtil.writeAppend(gson.toJson(villa), PATH);
-        return null;
+    private static final String VILLA_CSV = "src/main/java/data/Villa.csv";
+
+    protected VillaDao() {
+        super(VILLA_CSV, Villa.class);
     }
 
     @Override
-    public Villa getDetail(String id) {
-        return null;
+    public List<String> showAllNameNotDuplicate() {
+        return fileDao.showList()
+                      .stream()
+                      .map(villa -> villa.getName())
+                      .distinct()
+                      .collect(Collectors.toList());
     }
 
     @Override
-    public List<Villa> showList() {
-        return null;
+    public Villa addNewServices(Villa t) {
+        return fileDao.save(t);
     }
 
     @Override
-    public Villa update(Villa villa) {
-        return null;
-    }
-
-    @Override
-    public void delete(String id) {
-
-    }
-
-    @Override
-    protected List<Villa> showAllNameNotDuplicate() {
-        return null;
+    public List<Villa> showServices() {
+        return fileDao.showList();
     }
 }
