@@ -11,7 +11,7 @@ public class HouseDaoTest extends TestCase {
     HouseDao houseDao = new HouseDao();
 
     public void testShowAllNameNotDuplicate() {
-
+        houseDao.showAllNameNotDuplicate().forEach(System.out::println);
     }
 
     public void testAddNewService() {
@@ -21,6 +21,7 @@ public class HouseDaoTest extends TestCase {
         House house3 = new House(UUID.randomUUID().toString(),"house 2",1,12,3,RentalType.DAY,"tot","mota house 1", 3);
         House house4 = new House(UUID.randomUUID().toString(),"house 3",1,12,3,RentalType.DAY,"tot","mota house 1", 3);
 
+        houseDao.addNewService(house1);
         houseDao.addNewService(house2);
         houseDao.addNewService(house3);
         houseDao.addNewService(house4);
