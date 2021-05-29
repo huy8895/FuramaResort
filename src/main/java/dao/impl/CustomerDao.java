@@ -1,34 +1,15 @@
 package dao.impl;
 
-import dao.AbstractDao;
 import models.Customer;
 
-import java.util.List;
-
-public class CustomerDao implements AbstractDao<Customer> {
-    @Override
+public class CustomerDao {
     public Customer add(Customer customer) {
         return null;
     }
 
-    @Override
-    public Customer getDetail(String id) {
+
+    public String showInformationOfCustomer(){
         return null;
-    }
-
-    @Override
-    public List<Customer> showList() {
-        return null;
-    }
-
-    @Override
-    public Customer update(Customer customer) {
-        return null;
-    }
-
-    @Override
-    public void delete(String id) {
-
     }
 
     /**
@@ -37,5 +18,14 @@ public class CustomerDao implements AbstractDao<Customer> {
      */
     public String showInformationCustomer(){
         return null;
+    }
+
+
+    /**
+     * cho phép hiển thị danh sách Customer trong file Customer.CSV
+     * được đánh số thứ tự để thực hiện việc lựa chọn booking cho Customer nào và trình đơn sau
+     */
+    public void addNewBooking(){
+
     }
 }
