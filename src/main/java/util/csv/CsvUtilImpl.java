@@ -4,13 +4,13 @@ import models.rent.House;
 import util.csv.impl.HouseCsvImpl;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class CsvUtilImpl<T> implements CsvUtil<T> {
     private static final String COMMA_DELIMITER = ",";
+    public static final int INITIAL_VALUE = 0;
 
     @Override
     public String writeHeader(Object src) {
@@ -72,5 +72,17 @@ public class CsvUtilImpl<T> implements CsvUtil<T> {
         if (type.getSuperclass() != null) {
             getAllFields(fields, type.getSuperclass());
         }
+    }
+
+    protected Map<String, String> getMapFieldNameAndValue(String csvLine, Class<T> classOfT) {
+        List<String> allField = getAllField(classOfT);
+        String[] values = csvLine.split(COMMA_DELIMITER);
+        Map<String, String> map = new HashMap<>();
+        AtomicInteger atomicInteger = new AtomicInteger(INITIAL_VALUE);
+        Arrays.stream(values)
+              .forEach(value ->
+                      map.put(allField.get(atomicInteger.getAndIncrement()), value)
+              );
+        return map;
     }
 }
