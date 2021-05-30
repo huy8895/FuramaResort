@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FileCSVDao<T> implements AbstractDao<T> {
+    public static final int SKIP_LINE_HEADER = 1;
     private final String filePath;
     private final CsvUtil<T> csvUtil;
     private final Class<T> tClass;
@@ -64,6 +65,7 @@ public class FileCSVDao<T> implements AbstractDao<T> {
             br.close();
             fr.close();
             return listLine.stream()
+                           .skip(SKIP_LINE_HEADER)
                            .map(s -> csvUtil.fromCsv(s, tClass))
                            .collect(Collectors.toList());
         } catch (IOException e) {

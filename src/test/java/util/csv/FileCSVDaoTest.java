@@ -18,9 +18,19 @@ public class FileCSVDaoTest extends TestCase {
         House house4 = new House(UUID.randomUUID().toString(),"house 3",1,12,3,RentalType.DAY,"tot","mota house 1", 3);
 
         fileCSVDao.save(house1);
+        fileCSVDao.save(house1);
+        fileCSVDao.save(house2);
+        fileCSVDao.save(house3);
 
         CsvUtilImpl csvUtil = new CsvUtilImpl();
         String header = csvUtil.writeHeader(house2);
         System.out.println("header = " + header);
+    }
+
+    public void testSave() {
+    }
+
+    public void testShowList() {
+        fileCSVDao.showList();
     }
 }
