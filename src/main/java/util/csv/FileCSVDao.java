@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class FileCSVDao<T> implements AbstractDao<T> {
     private final String filePath;
-    private final CsvUtil csvUtil;
+    private final CsvUtil<T> csvUtil;
     private final Class<T> tClass;
 
     public FileCSVDao(String filePath, Class<T> tClass) {

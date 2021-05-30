@@ -1,7 +1,7 @@
 package util.csv;
 
-public interface CsvUtil {
+public interface CsvUtil<T> {
     String writeHeader(Object src);
     String toCsv(Object src);
-    <T> T fromCsv(String json, Class<T> classOfT) ;
+    T fromCsv(String csvLine, Class<T> classOfT) ;
 }
