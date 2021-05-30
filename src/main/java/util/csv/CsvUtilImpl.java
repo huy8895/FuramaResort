@@ -1,7 +1,11 @@
 package util.csv;
 
 import models.rent.House;
+import models.rent.Room;
+import models.rent.Villa;
 import util.csv.impl.HouseCsvImpl;
+import util.csv.impl.RoomCsvImpl;
+import util.csv.impl.VillaCsvImpl;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -49,7 +53,7 @@ public class CsvUtilImpl<T> implements CsvUtil<T> {
             for (Field declaredField : fieldList) {
                 declaredField.setAccessible(true);
                 Object o = declaredField.get(src);
-                listValueOfFields.add(fieldList.indexOf(declaredField), o.toString());
+                listValueOfFields.add(fieldList.indexOf(declaredField), o == null ? "" : o.toString());
             }
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -63,6 +67,14 @@ public class CsvUtilImpl<T> implements CsvUtil<T> {
     public T fromCsv(String csvLine, Class<T> classOfT) {
         if (House.class.equals(classOfT)) {
             return (T) new HouseCsvImpl().fromCsv(csvLine);
+        }
+
+        if (Villa.class.equals(classOfT)) {
+            return (T) new VillaCsvImpl().fromCsv(csvLine);
+        }
+
+        if (Room.class.equals(classOfT)) {
+            return (T) new RoomCsvImpl().fromCsv(csvLine);
         }
         return null;
     }

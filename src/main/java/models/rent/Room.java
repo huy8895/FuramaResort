@@ -10,9 +10,9 @@ public class Room extends RentService {
     /**
      * Dịch vụ miễn phí đi kèm
      */
-    List<AccompaniedService> freeServicesIncluded;
+    String freeServicesIncluded;
 
-    public Room(String id, String name, int usableArea, double rentalCost, int maxNumberPeople, RentalType rentalType, List<AccompaniedService> freeServicesIncluded) {
+    public Room(String id, String name, int usableArea, double rentalCost, int maxNumberPeople, RentalType rentalType, String freeServicesIncluded) {
         super(id, name, usableArea, rentalCost, maxNumberPeople, rentalType);
         this.freeServicesIncluded = freeServicesIncluded;
     }
@@ -35,11 +35,11 @@ public class Room extends RentService {
                 '}';
     }
 
-    public List<AccompaniedService> getFreeServicesIncluded() {
+    public String getFreeServicesIncluded() {
         return freeServicesIncluded;
     }
 
-    public void setFreeServicesIncluded(List<AccompaniedService> freeServicesIncluded) {
+    public void setFreeServicesIncluded(String freeServicesIncluded) {
         this.freeServicesIncluded = freeServicesIncluded;
     }
 }
