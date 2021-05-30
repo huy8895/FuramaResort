@@ -1,11 +1,12 @@
 package dao;
 
+import util.AbstractDao;
 import util.FileCSVDao;
 
 import java.util.List;
 
 public abstract class ServiceDao<T> {
-    protected final FileCSVDao<T> fileCSVDao;
+    protected final AbstractDao<T> fileCSVDao;
 
     protected ServiceDao(String filePath, Class<T> tClass) {
         this.fileCSVDao = new FileCSVDao<>(filePath, tClass);
