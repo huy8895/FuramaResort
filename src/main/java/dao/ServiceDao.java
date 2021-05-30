@@ -1,15 +1,14 @@
 package dao;
 
-import models.rent.Room;
-import util.FileDao;
+import util.FileCSVDao;
 
 import java.util.List;
 
 public abstract class ServiceDao<T> {
-    protected final FileDao<T> fileDao;
+    protected final FileCSVDao<T> fileCSVDao;
 
     protected ServiceDao(String filePath, Class<T> tClass) {
-        this.fileDao = new FileDao<>(filePath, tClass);
+        this.fileCSVDao = new FileCSVDao<>(filePath, tClass);
     }
 
     abstract protected List<String> showAllNameNotDuplicate();

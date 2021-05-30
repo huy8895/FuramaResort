@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import models.rent.House;
 import models.rent.Room;
 import models.rent.Villa;
+import util.FileCSVDao;
 
 import java.util.UUID;
 

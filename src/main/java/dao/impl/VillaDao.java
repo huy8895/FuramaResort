@@ -15,20 +15,20 @@ public class VillaDao extends ServiceDao<Villa> {
 
     @Override
     public List<String> showAllNameNotDuplicate() {
-        return fileDao.showList()
-                      .stream()
-                      .map(villa -> villa.getName())
-                      .distinct()
-                      .collect(Collectors.toList());
+        return fileCSVDao.showList()
+                         .stream()
+                         .map(villa -> villa.getName())
+                         .distinct()
+                         .collect(Collectors.toList());
     }
 
     @Override
     public Villa addNewService(Villa t) {
-        return fileDao.save(t);
+        return fileCSVDao.save(t);
     }
 
     @Override
     public List<Villa> showServices() {
-        return fileDao.showList();
+        return fileCSVDao.showList();
     }
 }

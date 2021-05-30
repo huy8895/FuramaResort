@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FileDao<T> implements AbstractDao<T> {
+public class FileJsonDao<T> implements AbstractDao<T> {
     private final String filePath;
     private final Gson gson;
     private final Class<T> tClass;
 
-    public FileDao(String filePath, Class<T> tClass) {
+    public FileJsonDao(String filePath, Class<T> tClass) {
         this.filePath = filePath;
         this.tClass = tClass;
         this.gson = new Gson();

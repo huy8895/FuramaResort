@@ -15,20 +15,20 @@ public class HouseDao extends ServiceDao<House> {
 
     @Override
     public List<String> showAllNameNotDuplicate() {
-        return fileDao.showList()
-                      .stream()
-                      .map(house -> house.getName())
-                      .distinct()
-                      .collect(Collectors.toList());
+        return fileCSVDao.showList()
+                         .stream()
+                         .map(house -> house.getName())
+                         .distinct()
+                         .collect(Collectors.toList());
     }
 
     @Override
     public House addNewService(House newHouse) {
-        return fileDao.save(newHouse);
+        return fileCSVDao.save(newHouse);
     }
 
     @Override
     public List<House> showServices() {
-        return fileDao.showList();
+        return fileCSVDao.showList();
     }
 }
